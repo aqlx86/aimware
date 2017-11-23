@@ -124,6 +124,58 @@ static vec_t Normalize_y(vec_t ang)
 	return ang;
 }
 
+bool Createmove_Hacks::CircleStrafer(Vector &angles)
+{
+	if (!GetAsyncKeyState((int)Settings.GetSetting(Tab_Misc, Misc_CircleStrafe_Key)))
+		return false;
+
+	Vector forward;
+	g_Math.angleVectors(angles, forward);
+	forward *= Hacks.LocalPlayer->GetVecVelocity().Length2D() * 2;
+	/*
+	Mathetmatics
+	Fc = mV^2/r
+	F=ma
+	a = v^2/r
+	Angular momentum
+	w = v/r
+	angular acceloration = dw/dt
+	
+	etc. Math it all out
+	This is for a circle, however it should be triangles but its close enough
+	r = (180 * sidemove)/change in viewangs*PI
+	as we want max acceloration we want small r large v. Simple :) 
+	Someone can do that maths and select the right side move etc. 
+	*/
+	CTraceWorldOnly filter;// Pretty sure this ray trace is useless but hey :)
+	Ray_t ray;
+	trace_t tr;
+	ray.Init(Hacks.LocalPlayer->GetAbsOrigin(), forward);
+	Interfaces.pTrace->TraceRay(ray, MASK_SHOT, (CTraceFilter*)&filter, &tr);
+	static int add = 0;
+	float value = 1000 / Hacks.LocalPlayer->GetVecVelocity().Length2D();
+	float maxvalue = Settings.GetSetting(Tab_Misc, Misc_CircleStrafe_Max) / 2;
+	float minvalue = Settings.GetSetting(Tab_Misc, Misc_CircleStrafe_Min) / 2;
+
+	if (value > maxvalue)
+		value = maxvalue;
+
+	if (value < minvalue && minvalue != 0)
+		value = minvalue;
+
+	if (tr.DidHit())
+		add += value * 2;
+	else
+		add += value;
+	if (add > 180)
+		add -= 360;
+	angles.y += add;
+
+	Hacks.CurrentCmd->sidemove = -(value * 132.35294)/2;//-(value * 132.35294);//-450;
+	//Hacks.CurrentCmd->forwardmove = 450;
+	return true;
+}
+
 void misc::AutoStrafe(CInput::CUserCmd *cmd, C_BaseEntity *local, QAngle oldangles)
 {
 	static AutoStrafer Strafer;
