@@ -183,28 +183,18 @@ void Resolver3()
 						IsBreakingLBY = false;
 					}
 				}
-
-				if (player->isMoving()) {
-					float flCurTime = globalVars->curtime;
-					static float flTimeUpdate = 0.5f;
-					static float flNextTimeUpdate = flCurTime + flTimeUpdate;
-
-					if (flCurTime >= flNextTimeUpdate) {
-						bFlip = !bFlip;
-					}
-
-					if (flNextTimeUpdate < flCurTime || flNextTimeUpdate - flCurTime > 10.f)
-						flNextTimeUpdate = flCurTime + flTimeUpdate;
-
-					if (bFlip) {
-						flYaw += 35.f;
-					}
-					else {
-						flYaw -= 35.f;
-					}
-				player->GetEyeAngles()->y = flYaw;
+				
+				bool Resolver::HasSteadyDifference(const std::deque<CTickRecord>& l, float tolerance) {
+				size_t misses = 0;
+					for (size_t i = 0; i < l.size() - 1; i++) {
+						float tickdif = static_cast<float>(l.at(i).m_flSimulationTime - l.at(i + 1).tickcount);
+						float lbydif = GetDelta(l.at(i).m_flLowerBodyYawTarget, l.at(i + 1).m_flLowerBodyYawTarget);
+						float ntickdif = static_cast<float>(globalVars->tickcount - l.at(i).tickcount);
+						if (((lbydif / tickdif) * ntickdif) > tolerance) misses++;
+						}
+					return (misses <= (l.size() / 3));
 				}
-
+    
 				if (IsBreakingLBY)
 				{
 					Globals::resolvemode = 2;
