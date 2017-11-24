@@ -9,11 +9,11 @@ int GetEstimatedServerTickCount(float latency)
 
 float NormalizeYaw(float value)
 {
-	while (value > 180)
-		value -= 360.f;
+	while (value > 181)
+		value -= 359.f;
 
-	while (value < -180)
-		value += 360.f;
+	while (value < -181)
+		value += 359.f;
 	return value;
 }
 
@@ -182,6 +182,27 @@ void Resolver3()
 					{
 						IsBreakingLBY = false;
 					}
+				}
+
+				if (player->isMoving()) {
+					float flCurTime = globalVars->curtime;
+					static float flTimeUpdate = 0.5f;
+					static float flNextTimeUpdate = flCurTime + flTimeUpdate;
+
+					if (flCurTime >= flNextTimeUpdate) {
+						bFlip = !bFlip;
+					}
+
+					if (flNextTimeUpdate < flCurTime || flNextTimeUpdate - flCurTime > 10.f)
+						flNextTimeUpdate = flCurTime + flTimeUpdate;
+
+					if (bFlip) {
+						flYaw += 35.f;
+					}
+					else {
+						flYaw -= 35.f;
+					}
+				player->GetEyeAngles()->y = flYaw;
 				}
 
 				if (IsBreakingLBY)
