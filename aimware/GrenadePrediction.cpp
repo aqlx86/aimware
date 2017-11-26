@@ -55,7 +55,7 @@ void grenade_prediction::Paint()
 
 		if (g_Render->WorldToScreen(prev, nadeEnd))
 		{
-			g_Surface->DrawSetColor(Color(0, 255, 0, 255));
+			g_Surface->DrawSetColor(Color(0, 0, 0, 255));
 			g_Surface->DrawOutlinedCircle((int)nadeEnd.x, (int)nadeEnd.y, 10, 48);
 		}
 	}
