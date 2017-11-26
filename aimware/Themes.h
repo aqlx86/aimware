@@ -21,9 +21,9 @@ void RenderDefault(IDirect3DDevice9* pDevice)
 	static int hue = 140;
 
 	ImVec4 col_text = ImColor::HSV(hue / 255.f, 20.f / 255.f, 235.f / 255.f);
-	ImVec4 col_theme = ImColor(130, 177, 255);
+	ImVec4 col_theme = ImColor(255, 0, 0);
 	ImVec4 col_main = ImColor(9, 82, 128);
-	ImVec4 col_back = ImColor(31, 44, 54);
+	ImVec4 col_back = ImColor(255, 255, 255);
 	ImVec4 col_area = ImColor(4, 32, 41);
 
 	style.Colors[ImGuiCol_Text] = ImVec4(0.98f, 0.98f, 0.98f, 1.00f);
