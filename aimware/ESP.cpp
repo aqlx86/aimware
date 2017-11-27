@@ -673,7 +673,7 @@ void visuals::DrawAngles()
 	if (!g_Render->WorldToScreen(src3D, src) || !g_Render->WorldToScreen(tr.endpos, dst))
 		return;
 
-	g_Render->Line(src.x, src.y, dst.x, dst.y, Color(0, 255, 255, 255));
+	g_Render->Line(src.x, src.y, dst.x, dst.y, Color(0, 255, 36, 255));
 	g_Render->Text(dst.x, dst.y, Color(255, 255, 255, 255), g_Render->font.ESP, "-FAKE-");
 }
 
