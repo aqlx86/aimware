@@ -150,7 +150,7 @@ void Resolver3()
 					bLowerBodyUpdated = false;
 				}
 
-				if (pEnt->GetEyeAngles()->y - pEnt->GetLowerBodyYaw() > 35)
+				if (pEnt->GetEyeAngles()->y - pEnt->GetLowerBodyYaw() > 36)
 				{
 					isFakeHeading = true;
 				}
@@ -229,12 +229,11 @@ void Resolver3()
 
 					pEnt->GetEyeAngles()->y = 180;
 
-					switch (Globals::Shots % 4)
+					switch (Globals::Shots % 3)
 					{
 					case 1: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw(); break;
-					case 2: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 90; break;
-					case 3: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 180; break;
-					case 4: pEnt->GetEyeAngles()->y = oldLBY + rand() % 50; break;
+					case 2: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 180; break;
+					case 3: pEnt->GetEyeAngles()->y = oldLBY + rand() % 90; break;
 					}
 				}
 				else
@@ -243,7 +242,7 @@ void Resolver3()
 
 					pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 180;
 
-					switch (Globals::Shots % 13)
+					switch (Globals::Shots % 21)
 					{
 					case 1: pEnt->GetEyeAngles()->y = 180; break;
 					case 2: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 160;
@@ -258,6 +257,14 @@ void Resolver3()
 					case 11: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 180; break;
 					case 12: pEnt->GetEyeAngles()->y = oldLBY + rand() % 48; break;
 					case 13: pEnt->GetEyeAngles()->y = pEnt->GetEyeAngles()->y + rand() % 360; break;
+					case 14: pEnt->GetEyeAngles()->y = 159 + rand() % 90;
+					case 15: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 180; break;
+					case 16: pEnt->GetEyeAngles()->y = pEnt->GetEyeAngles()->y + rand() % 360; break;
+					case 17: pEnt->GetEyeAngles()->y = 180; break;
+					case 18: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 160;
+					case 19: pEnt->GetEyeAngles()->y = oldLBY + rand() % 90;
+					case 20: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + pEnt->GetEyeAngles()->y + rand() % 35;
+					case 21: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw(); break;
 					}
 				}
 			}
