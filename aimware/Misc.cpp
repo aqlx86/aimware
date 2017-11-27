@@ -31,26 +31,26 @@ void misc::OnCreateMove(CInput::CUserCmd *cmd, C_BaseEntity *local)
 			motion++;
 		int value = ServerTime % 20;
 		switch (value) {
-		case 0: setclantag(XorStr("")); break;
-		case 1: setclantag(XorStr("f")); break;
-		case 2: setclantag(XorStr("fr")); break;
-		case 3: setclantag(XorStr("fro")); break;
-		case 4: setclantag(XorStr("fros")); break;
-		case 5: setclantag(XorStr("frost")); break;
-		case 6: setclantag(XorStr("AIMWARE")); break;
-		case 7: setclantag(XorStr("AIMWARE")); break;
-		case 8: setclantag(XorStr("AIMWARE")); break;
-		case 9: setclantag(XorStr("AIMWARE")); break;
-		case 10: setclantag(XorStr("AIMWARE")); break;
-		case 11: setclantag(XorStr("AIMWARE")); break;
-		case 12: setclantag(XorStr("AIMWARE")); break;
-		case 13: setclantag(XorStr("AIMWARE")); break;
-		case 14: setclantag(XorStr("frost")); break;
-		case 15: setclantag(XorStr("fros")); break;
-		case 16: setclantag(XorStr("fro")); break;
-		case 17: setclantag(XorStr("fr")); break;
-		case 18: setclantag(XorStr("f")); break;
-		case 19: setclantag(XorStr("")); break;
+		case 0: setclantag(XorStr("i9-GEN")); break;
+		case 1: setclantag(XorStr("A▆▄_i9_▄▆I")); break;
+		case 2: setclantag(XorStr("▂█▄▂▄ ▂▆▄▆i9▆▄▆▂ ▄▂▄█▂")); break;
+		case 3: setclantag(XorStr("▄█▄▂▅ ▂▄▇▄i9▄▇▄▂ ▅▂▄█▄")); break;
+		case 4: setclantag(XorStr("▂█▄▂▂ ▂▆▇▂i9▂▇▆▂ ▂▂▄█▂")); break;
+		case 5: setclantag(XorStr("▂█▄▂▅ ▂▆█▆i9▆█▆▂ ▅▂▄█▂")); break;
+		case 6: setclantag(XorStr("▂█▄▂▅ ▂▆▇█i9█▇▆▂ ▅▂▄█▂")); break;
+		case 7: setclantag(XorStr("▂█▄▂▅ ▂▆▇▇i9▇▇▆▂ ▅▂▄█▂")); break;
+		case 8: setclantag(XorStr("▂█▄▂▅ ▂▇▇▇i9▇▇▇▂ ▅▂▄█▂")); break;
+		case 9: setclantag(XorStr("▇█▄▇▇ ▂▇▇▇i9▇▇▇▂ ▇▇▄█▇")); break;
+		case 10: setclantag(XorStr("▂█▄▂▅ ▂▇▇▇i9▇▇▇▂ ▅▂▄█▂")); break;
+		case 11: setclantag(XorStr("▂█▄▂▅ ▂▆▇▇i9▇▇▆▂ ▅▂▄█▂")); break;
+		case 12: setclantag(XorStr("▂█▄▂▅ ▂▆▇█i9█▇▆▂ ▅▂▄█▂")); break;
+		case 13: setclantag(XorStr("▂█▄▂▅ ▂▆█▆i9▆█▆▂ ▅▂▄█▂")); break;
+		case 14: setclantag(XorStr("▂█▄▂▂ ▂▆▇▂i9▂▇▆▂ ▂▂▄█▂")); break;
+		case 15: setclantag(XorStr("▂█▄▂▂ ▂▆▇▂i9▂▇▆▂ ▂▂▄█▂")); break;
+		case 16: setclantag(XorStr("▄█▄▂▅ ▂▄▇▄i9▄▇▄▂ ▅▂▄█▄")); break;
+		case 17: setclantag(XorStr("▂█▄▂▄ ▂▆▄▆i9▆▄▆▂ ▄▂▄█▂")); break;
+		case 18: setclantag(XorStr("A▆▄_i9_▄▆I")); break;
+		case 19: setclantag(XorStr("i9-GEN")); break;
 
 		}
 		counter++;
