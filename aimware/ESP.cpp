@@ -615,12 +615,12 @@ void visuals::DrawAwall()
 	if (CanWallbang(damage))
 	{
 		g_Render->OutlineCircle(MidX / 2, MidY / 2, 10, 10, Color(0, 255, 0));
-		g_Render->Textf(MidX / 2, MidY / 2 + 6, Color(255, 255, 255, 255), g_Render->font.ESP, "DMG: %1i", damage);
+		g_Render->Textf(MidX / 4, MidY / 4 + 6, Color(255, 255, 255, 255), g_Render->font.ESP, "aWdmg: %1i", damage);
 	}
 	else
 	{
-		g_Render->OutlineCircle(MidX / 2, MidY / 2, 10, 10, Color(255, 0, 0));
-		g_Render->Textf(MidX / 2, MidY / 2 + 6, Color(255, 255, 255, 255), g_Render->font.ESP, "DMG: 0");
+		g_Render->OutlineCircle(MidX / 2, MidY / 2, 10, 10, Color(6, 6, 6));
+		g_Render->Textf(MidX / 1, MidY / 1 + 6, Color(255, 255, 255, 255), g_Render->font.ESP, "Can't penetrate!");
 	}
 }
 
@@ -661,10 +661,10 @@ void visuals::DrawAngles()
 		return;
 
 	g_Render->Line(src.x, src.y, dst.x, dst.y, Color(0, 255, 0, 255));
-	g_Render->Text(dst.x, dst.y, Color(0, 255, 0, 255), g_Render->font.ESP, "REAL");
+	g_Render->Text(dst.x, dst.y, Color(255, 0, 0, 255), g_Render->font.ESP, "*Real-hittable*");
 
 	AngleVectors(QAngle(0, Globals::FakeAngle, 0), &forward);
-	dst3D = src3D + (forward * 45.f);
+	dst3D = src3D + (forward * 48.f);
 
 	ray.Init(src3D, dst3D);
 
@@ -674,7 +674,7 @@ void visuals::DrawAngles()
 		return;
 
 	g_Render->Line(src.x, src.y, dst.x, dst.y, Color(255, 0, 0, 255));
-	g_Render->Text(dst.x, dst.y, Color(255, 0, 0, 255), g_Render->font.ESP, "FAKE");
+	g_Render->Text(dst.x, dst.y, Color(255, 255, 255, 255), g_Render->font.ESP, "-fake-");
 }
 
 RECT visuals::DynamicBox(C_BaseEntity* pPlayer, bool& PVS, C_BaseEntity* local)
@@ -837,9 +837,9 @@ void visuals::DrawHealth(RECT rect, C_BaseEntity* pPlayer)
 	int Red = 255 - (HealthValue2 * 2.55);
 	int Green = HealthValue2 * 2.55;
 	float height = (rect.bottom - rect.top) * (HealthValue2 / 100);
-	g_Render->GradientH(rect.left - 9, rect.top - 1, 6, rect.bottom - rect.top + 2, Color(0, 0, 0, 150), Color(0, 0, 0, 150));
-	g_Render->GradientH(rect.left - 8, rect.bottom - height, 4, height, Color(Red, Green, 0, 255), Color(Red, Green, 0, 255));
-	g_Render->DrawOutlinedRect(rect.left - 9, rect.top - 1, 6, rect.bottom - rect.top + 2, Color(0, 0, 0, 255));
+	g_Render->GradientH(rect.left - 7, rect.top - 1, 6, rect.bottom - rect.top + 2, Color(0, 0, 0, 150), Color(0, 0, 0, 150));
+	g_Render->GradientH(rect.left - 6, rect.bottom - height, 3, height, Color(Red, Green, 0, 163), Color(Red, Green, 0, 255));
+	g_Render->DrawOutlinedRect(rect.left - 7, rect.top - 1, 6, rect.bottom - rect.top + 2, Color(15, 150, 150, 255));
 	g_Render->DrawString2(g_Render->font.ESPMini, rect.left - 6, rect.bottom - height + 1, Color(255, 255, 255, 255), FONT_CENTER, hp);
 }
 
@@ -856,10 +856,10 @@ void visuals::Hitmarker()
 
 	if (G::hitmarkeralpha > 0.f)
 	{
-		g_Render->Line(W / 2 - 10, H / 2 - 10, W / 2 - 5, H / 2 - 5, Color(240, 240, 240, (G::hitmarkeralpha * 255.f)));
-		g_Render->Line(W / 2 - 10, H / 2 + 10, W / 2 - 5, H / 2 + 5, Color(240, 240, 240, (G::hitmarkeralpha * 255.f)));
-		g_Render->Line(W / 2 + 10, H / 2 - 10, W / 2 + 5, H / 2 - 5, Color(240, 240, 240, (G::hitmarkeralpha * 255.f)));
-		g_Render->Line(W / 2 + 10, H / 2 + 10, W / 2 + 5, H / 2 + 5, Color(240, 240, 240, (G::hitmarkeralpha * 255.f)));
+		g_Render->Line(W / 2 - 10, H / 2 - 10, W / 2 - 5, H / 2 - 5, Color(15, 150, 150, (G::hitmarkeralpha * 255.f)));
+		g_Render->Line(W / 2 - 10, H / 2 + 10, W / 2 - 5, H / 2 + 5, Color(15, 150, 150, (G::hitmarkeralpha * 255.f)));
+		g_Render->Line(W / 2 + 10, H / 2 - 10, W / 2 + 5, H / 2 - 5, Color(15, 150, 150, (G::hitmarkeralpha * 255.f)));
+		g_Render->Line(W / 2 + 10, H / 2 + 10, W / 2 + 5, H / 2 + 5, Color(15, 150, 150, (G::hitmarkeralpha * 255.f)));
 
 	}
 }
