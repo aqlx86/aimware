@@ -10,10 +10,10 @@ int GetEstimatedServerTickCount(float latency)
 float NormalizeYaw(float value)
 {
 	while (value > 181)
-		value -= 359.f;
+		value -= 360.f;
 
 	while (value < -181)
-		value += 359.f;
+		value += 360.f;
 	return value;
 }
 
@@ -205,9 +205,9 @@ void Resolver3()
 
 					switch (Globals::Shots % 4)
 					{
-					case 1: pEnt->GetEyeAngles()->y = 47 + rand() % 180;
+					case 1: pEnt->GetEyeAngles()->y = 90 + rand() % 180;
 					case 2: pEnt->GetEyeAngles()->y = oldLBY + rand() % 90;
-					case 3: pEnt->GetEyeAngles()->y = 178 + rand() % 90;
+					case 3: pEnt->GetEyeAngles()->y = 160 + rand() % 90;
 					case 4: pEnt->GetEyeAngles()->y = oldLBY + pEnt->GetEyeAngles()->y + rand() % 45;
 					}
 				}
@@ -242,29 +242,26 @@ void Resolver3()
 
 					pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 180;
 
-					switch (Globals::Shots % 21)
+					switch (Globals::Shots % 18)
 					{
 					case 1: pEnt->GetEyeAngles()->y = 180; break;
-					case 2: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 160;
+					case 2: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() - rand() % 160;
 					case 3: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 90; break;
 					case 4: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + pEnt->GetEyeAngles()->y + rand() % 35;
 					case 5: pEnt->GetEyeAngles()->y = 48 + rand() % 160;
 					case 6: pEnt->GetEyeAngles()->y = oldLBY + rand() % 90;
-					case 7: pEnt->GetEyeAngles()->y = 159 + rand() % 90;
+					case 7: pEnt->GetEyeAngles()->y = 159 - rand() % 90;
 					case 8: pEnt->GetEyeAngles()->y = oldLBY + pEnt->GetEyeAngles()->y + rand() % 45;
-					case 9: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw(); break;
-					case 10: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 90; break;
-					case 11: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 180; break;
-					case 12: pEnt->GetEyeAngles()->y = oldLBY + rand() % 48; break;
-					case 13: pEnt->GetEyeAngles()->y = pEnt->GetEyeAngles()->y + rand() % 360; break;
-					case 14: pEnt->GetEyeAngles()->y = 159 + rand() % 90;
-					case 15: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 180; break;
-					case 16: pEnt->GetEyeAngles()->y = pEnt->GetEyeAngles()->y + rand() % 360; break;
-					case 17: pEnt->GetEyeAngles()->y = 180; break;
-					case 18: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 160;
-					case 19: pEnt->GetEyeAngles()->y = oldLBY + rand() % 90;
-					case 20: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + pEnt->GetEyeAngles()->y + rand() % 35;
-					case 21: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw(); break;
+					case 9: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 90; break;
+					case 10: pEnt->GetEyeAngles()->y = oldLBY + rand() % 48; break;
+					case 11: pEnt->GetEyeAngles()->y = 159 + rand() % 90;
+					case 12: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 180; break;
+					case 13: pEnt->GetEyeAngles()->y = 180; break;
+					case 14: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + rand() % 160;
+					case 15: pEnt->GetEyeAngles()->y = oldLBY - rand() % 90;
+					case 16: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw() + pEnt->GetEyeAngles()->y + rand() % 35;
+					case 17: pEnt->GetEyeAngles()->y = pEnt->GetLowerBodyYaw(); break;
+					case 18: pEnt->GetEyeAngles()->y = oldLBY + rand() % 90;
 					}
 				}
 			}
