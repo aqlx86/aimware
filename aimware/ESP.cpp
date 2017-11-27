@@ -615,12 +615,12 @@ void visuals::DrawAwall()
 	if (CanWallbang(damage))
 	{
 		g_Render->OutlineCircle(MidX / 2, MidY / 2, 10, 10, Color(0, 255, 0));
-		g_Render->Textf(MidX / 4, MidY / 4 + 6, Color(255, 255, 255, 255), g_Render->font.ESP, "aWdmg: %1i", damage);
+		g_Render->Textf(MidX / 2, MidY / 2 + 6, Color(255, 255, 255, 255), g_Render->font.ESP, "A-WALL: %1i", damage);
 	}
 	else
 	{
 		g_Render->OutlineCircle(MidX / 2, MidY / 2, 10, 10, Color(6, 6, 6));
-		g_Render->Textf(MidX / 1, MidY / 1 + 6, Color(255, 255, 255, 255), g_Render->font.ESP, "Can't penetrate!");
+		g_Render->Textf(MidX / 2, MidY / 2 + 6, Color(255, 255, 255, 255), g_Render->font.ESP, "Can't penetrate!");
 	}
 }
 
@@ -651,7 +651,7 @@ void visuals::DrawAngles()
 
 	AngleVectors(QAngle(0, Globals::RealAngle, 0), &forward);
 	src3D = pLocal->GetOrigin();
-	dst3D = src3D + (forward * 45.f);
+	dst3D = src3D + (forward * 53.f);
 
 	ray.Init(src3D, dst3D);
 
@@ -660,8 +660,8 @@ void visuals::DrawAngles()
 	if (!g_Render->WorldToScreen(src3D, src) || !g_Render->WorldToScreen(tr.endpos, dst))
 		return;
 
-	g_Render->Line(src.x, src.y, dst.x, dst.y, Color(0, 255, 0, 255));
-	g_Render->Text(dst.x, dst.y, Color(255, 0, 0, 255), g_Render->font.ESP, "*Real-hittable*");
+	g_Render->Line(src.x, src.y, dst.x, dst.y, Color(0, 225, 255, 255));
+	g_Render->Text(dst.x, dst.y, Color(0, 255, 84, 255), g_Render->font.ESP, "[REAL=HIT]");
 
 	AngleVectors(QAngle(0, Globals::FakeAngle, 0), &forward);
 	dst3D = src3D + (forward * 48.f);
@@ -673,8 +673,8 @@ void visuals::DrawAngles()
 	if (!g_Render->WorldToScreen(src3D, src) || !g_Render->WorldToScreen(tr.endpos, dst))
 		return;
 
-	g_Render->Line(src.x, src.y, dst.x, dst.y, Color(255, 0, 0, 255));
-	g_Render->Text(dst.x, dst.y, Color(255, 255, 255, 255), g_Render->font.ESP, "-fake-");
+	g_Render->Line(src.x, src.y, dst.x, dst.y, Color(0, 255, 255, 255));
+	g_Render->Text(dst.x, dst.y, Color(255, 255, 255, 255), g_Render->font.ESP, "-FAKE-");
 }
 
 RECT visuals::DynamicBox(C_BaseEntity* pPlayer, bool& PVS, C_BaseEntity* local)
@@ -856,10 +856,10 @@ void visuals::Hitmarker()
 
 	if (G::hitmarkeralpha > 0.f)
 	{
-		g_Render->Line(W / 2 - 10, H / 2 - 10, W / 2 - 5, H / 2 - 5, Color(15, 150, 150, (G::hitmarkeralpha * 255.f)));
+		g_Render->Line(W / 6 - 10, H / 6 - 10, W / 6 - 5, H / 6 - 5, Color(15, 150, 150, (G::hitmarkeralpha * 255.f)));
 		g_Render->Line(W / 2 - 10, H / 2 + 10, W / 2 - 5, H / 2 + 5, Color(15, 150, 150, (G::hitmarkeralpha * 255.f)));
 		g_Render->Line(W / 2 + 10, H / 2 - 10, W / 2 + 5, H / 2 - 5, Color(15, 150, 150, (G::hitmarkeralpha * 255.f)));
-		g_Render->Line(W / 2 + 10, H / 2 + 10, W / 2 + 5, H / 2 + 5, Color(15, 150, 150, (G::hitmarkeralpha * 255.f)));
+		g_Render->Line(W / 6 + 10, H / 6 + 10, W / 6 + 5, H / 6 + 5, Color(15, 150, 150, (G::hitmarkeralpha * 255.f)));
 
 	}
 }
