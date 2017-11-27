@@ -4,7 +4,7 @@
 
 int GetEstimatedServerTickCount(float latency)
 {
-	return (int)floorf(float((float)((float)(latency) / (float)((uintptr_t)&g_Globals->interval_per_tick)) + 0.5) + 1 + (int)((uintptr_t)&g_Globals->tickcount));
+	return (int)floorf(float((float)((float)(latency) / (float)((uintptr_t)&g_Globals->interval_per_tick)) + 0.1) + 1 + (int)((uintptr_t)&g_Globals->tickcount));
 }
 
 float NormalizeYaw(float value)
