@@ -799,7 +799,7 @@ void visuals::Skeleton(C_BaseEntity* pEntity, Color Col)
 
 	Vector vParent, vChild, sParent, sChild;
 
-	for (int j = 0; j < pStudioHdr->numbones; j+)
+	for (int j = 0; j < pStudioHdr->numbones; j++)
 	{
 		mstudiobone_t* pBone = pStudioHdr->GetBone(j);
 
