@@ -545,7 +545,7 @@ void visuals::DrawInfo(RECT rect, C_BaseEntity* pPlayer, C_BaseEntity* local)
 			}
 			else if (Globals::resolvemode == 3)
 			{
-				texts.push_back(Text(std::string("Resolver: LBY Update"), 0, g_Render->font.ESP, Color(255, 0, 229, 163)));
+				texts.push_back(Text(std::string("Resolver: LBY Update"), 0, g_Render->font.ESP, Color(255, 0, 0, 255)));
 			}
 			else if (Globals::resolvemode == 4)
 			{
