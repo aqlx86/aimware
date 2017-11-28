@@ -25,10 +25,13 @@ void RenderDefault(IDirect3DDevice9* pDevice)
 	ImVec4 col_main = ImColor(255, 255, 255);
 	ImVec4 col_back = ImColor(255, 255, 255);
 	ImVec4 col_area = ImColor(255, 0, 0);
+	ImVec4 col_windowbg = ImColor(255, 0, 0);
+	ImVec4 col_button = ImColor(163, 0, 163);
+	ImVec4 col_buttonactive = ImColor(255, 0, 0);
 
 	style.Colors[ImGuiCol_Text] = ImVec4(0.98f, 0.98f, 0.98f, 1.00f);
 	style.Colors[ImGuiCol_TextDisabled] = ImVec4(0.30f, 0.30f, 0.30f, 1.00f);
-	style.Colors[ImGuiCol_WindowBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.01f);
+	style.Colors[ImGuiCol_WindowBg] = ImVec4(0.0f, 0.0f, 0.0f, 0.00f);
 	style.Colors[ImGuiCol_ChildWindowBg] = ImVec4(0.11f, 0.11f, 0.11f, 0.1f);
 	style.Colors[ImGuiCol_Border] = ImVec4(0.83f, 0.00f, .00f, 0.10f);
 	style.Colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
