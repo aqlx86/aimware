@@ -1,5 +1,8 @@
-#include "sdk.h"
+#include "SDK.h"
 #include "Resolver.h"
+#include "MathFunctions.h"
+#include "Utilities.h"
+#include "FireEventClientSide.h"
 
 CResolver* g_Resolver = new CResolver;
 
