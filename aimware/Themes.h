@@ -21,13 +21,10 @@ void RenderDefault(IDirect3DDevice9* pDevice)
 	static int hue = 140;
 
 	ImVec4 col_text = ImColor::HSV(hue / 255.f, 20.f / 255.f, 235.f / 255.f);
-	ImVec4 col_theme = ImColor(255, 0, 0);
+	ImVec4 col_theme = ImColor(255, 255, 255);
 	ImVec4 col_main = ImColor(255, 255, 255);
 	ImVec4 col_back = ImColor(255, 255, 255);
 	ImVec4 col_area = ImColor(255, 0, 0);
-	ImVec4 col_windowbg = ImColor(255, 0, 0);
-	ImVec4 col_button = ImColor(163, 0, 163);
-	ImVec4 col_buttonactive = ImColor(255, 0, 0);
 
 	style.Colors[ImGuiCol_Text] = ImVec4(0.98f, 0.98f, 0.98f, 1.00f);
 	style.Colors[ImGuiCol_TextDisabled] = ImVec4(0.30f, 0.30f, 0.30f, 1.00f);
@@ -35,9 +32,9 @@ void RenderDefault(IDirect3DDevice9* pDevice)
 	style.Colors[ImGuiCol_ChildWindowBg] = ImVec4(0.11f, 0.11f, 0.11f, 0.1f);
 	style.Colors[ImGuiCol_Border] = ImVec4(0.83f, 0.00f, .00f, 0.10f);
 	style.Colors[ImGuiCol_BorderShadow] = ImVec4(0.00f, 0.00f, 0.00f, 0.00f);
-	style.Colors[ImGuiCol_FrameBg] = ImVec4(0.01f, .01f, .01f, 0.1f);
-	style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.13, 0.13, 0.13, 1.f);
-	style.Colors[ImGuiCol_FrameBgActive] = ImVec4(0.11, 0.11, 0.11, 1.f);
+	style.Colors[ImGuiCol_FrameBg] = ImVec4(0.01f, .01f, .01f, 0.0f);
+	style.Colors[ImGuiCol_FrameBgHovered] = ImVec4(0.13, 0.13, 0.13, 0.f);
+	style.Colors[ImGuiCol_FrameBgActive] = ImVec4(0.11, 0.11, 0.11, 0.f);
 	style.Colors[ImGuiCol_TitleBg] = ImVec4(col_theme.x, col_theme.y, col_theme.z, .13f);
 	style.Colors[ImGuiCol_TitleBgCollapsed] = ImVec4(col_theme.x, col_theme.y, col_theme.z, .97f);
 	style.Colors[ImGuiCol_TitleBgActive] = ImVec4(col_theme.x, col_theme.y, col_theme.z, .13f);
