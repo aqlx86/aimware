@@ -382,7 +382,7 @@ void visuals::OnPaintTraverse(C_BaseEntity* local)
 			if (g_Options.Visuals.AimLine)
 				DrawSnapLine(Vector(rect.left + ((rect.right - rect.left) / 2), rect.bottom, 0), clr);
 			if (g_Options.Visuals.Skeleton)
-				Skeleton(entity, Color(0, 255, 14, 255));
+				Skeleton(entity, Color(0, 167, 255, 255));
 			if (g_Options.Visuals.health)
 				DrawHealth(rect, entity);
 			if (g_Options.Visuals.barrel)
@@ -660,8 +660,8 @@ void visuals::DrawAngles()
 	if (!g_Render->WorldToScreen(src3D, src) || !g_Render->WorldToScreen(tr.endpos, dst))
 		return;
 
-	g_Render->Line(src.x, src.y, dst.x, dst.y, Color(0, 225, 255, 255));
-	g_Render->Text(dst.x, dst.y, Color(0, 255, 84, 255), g_Render->font.ESP, "[REAL=HIT]");
+	g_Render->Line(src.x, src.y, dst.x, dst.y, Color(255, 255, 255, 255));
+	g_Render->Text(dst.x, dst.y, Color(0, 255, 84, 255), g_Render->font.ESP, "::REAL::");
 
 	AngleVectors(QAngle(0, Globals::FakeAngle, 0), &forward);
 	dst3D = src3D + (forward * 48.f);
@@ -673,7 +673,7 @@ void visuals::DrawAngles()
 	if (!g_Render->WorldToScreen(src3D, src) || !g_Render->WorldToScreen(tr.endpos, dst))
 		return;
 
-	g_Render->Line(src.x, src.y, dst.x, dst.y, Color(0, 255, 36, 255));
+	g_Render->Line(src.x, src.y, dst.x, dst.y, Color(255, 174, 0, 255));
 	g_Render->Text(dst.x, dst.y, Color(255, 255, 255, 255), g_Render->font.ESP, "-FAKE-");
 }
 
