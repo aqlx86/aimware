@@ -21,7 +21,7 @@ void RenderDefault(IDirect3DDevice9* pDevice)
 	static int hue = 140;
 
 	ImVec4 col_text = ImColor::HSV(hue / 255.f, 20.f / 255.f, 235.f / 255.f);
-	ImVec4 col_theme = ImColor(255, 255, 255);
+	ImVec4 col_theme = ImColor(255, 209, 0);
 	ImVec4 col_main = ImColor(255, 255, 255);
 	ImVec4 col_back = ImColor(255, 255, 255);
 	ImVec4 col_area = ImColor(255, 0, 0);
