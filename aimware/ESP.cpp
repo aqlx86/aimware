@@ -382,7 +382,7 @@ void visuals::OnPaintTraverse(C_BaseEntity* local)
 			if (g_Options.Visuals.AimLine)
 				DrawSnapLine(Vector(rect.left + ((rect.right - rect.left) / 2), rect.bottom, 0), clr);
 			if (g_Options.Visuals.Skeleton)
-				Skeleton(entity, Color(255, 255, 255, 255));
+				Skeleton(entity, Color(0, 255, 14, 255));
 			if (g_Options.Visuals.health)
 				DrawHealth(rect, entity);
 			if (g_Options.Visuals.barrel)
@@ -526,10 +526,10 @@ void visuals::DrawInfo(RECT rect, C_BaseEntity* pPlayer, C_BaseEntity* local)
 	else if (g_Engine->GetPlayerInfo(pPlayer->GetIndex(), &info))
 	{
 		if (g_Options.Visuals.Flashed && pPlayer == BombCarrier)
-			texts.push_back(Text("Bomb Carrier", 0, g_Render->font.ESP, Color(255, 220, 220, 255)));
+			texts.push_back(Text("Bomb Carrier", 0, g_Render->font.ESP, Color(255, 0, 0, 255)));
 
 		if (g_Options.Visuals.Flashed && pPlayer->IsFlashed())
-			texts.push_back(Text("Flashed", 0, g_Render->font.ESP, Color(255, 255, 183, 255)));
+			texts.push_back(Text("Flashed", 0, g_Render->font.ESP, Color(255, 255, 0, 255)));
 		if (g_Options.Visuals.Name)
 			texts.push_back(Text(info.name, 0, g_Render->font.ESP, Color(255, 255, 255, 255)));
 
@@ -537,19 +537,19 @@ void visuals::DrawInfo(RECT rect, C_BaseEntity* pPlayer, C_BaseEntity* local)
 		{
 			if (Globals::resolvemode == 1)
 			{
-				texts.push_back(Text(std::string("Resolver: Bruteforce"), 0, g_Render->font.ESP, Color(200, 200, 200, 255)));
+				texts.push_back(Text(std::string("Resolver: Bruteforce"), 0, g_Render->font.ESP, Color(255, 0, 0, 255)));
 			}
 			else if (Globals::resolvemode == 2)
 			{
-				texts.push_back(Text(std::string("Resolver: Predicting LBY"), 0, g_Render->font.ESP, Color(200, 200, 200, 255)));
+				texts.push_back(Text(std::string("Resolver: Predicting LBY"), 0, g_Render->font.ESP, Color(0, 0, 255, 255)));
 			}
 			else if (Globals::resolvemode == 3)
 			{
-				texts.push_back(Text(std::string("Resolver: LBY Update"), 0, g_Render->font.ESP, Color(200, 200, 200, 255)));
+				texts.push_back(Text(std::string("Resolver: LBY Update"), 0, g_Render->font.ESP, Color(255, 0, 229, 163)));
 			}
 			else if (Globals::resolvemode == 4)
 			{
-				texts.push_back(Text(std::string("Resolver: Legit Player"), 0, g_Render->font.ESP, Color(200, 200, 200, 255)));
+				texts.push_back(Text(std::string("Resolver: Legit Player"), 0, g_Render->font.ESP, Color(0, 255, 0, 255)));
 			}
 		}
 		if (g_Options.Visuals.Distance)
@@ -799,7 +799,7 @@ void visuals::Skeleton(C_BaseEntity* pEntity, Color Col)
 
 	Vector vParent, vChild, sParent, sChild;
 
-	for (int j = 0; j < pStudioHdr->numbones; j++)
+	for (int j = 0; j < pStudioHdr->numbones; j+)
 	{
 		mstudiobone_t* pBone = pStudioHdr->GetBone(j);
 
